@@ -1,0 +1,318 @@
+╔════════════════════════════════════════════════════════════════╗
+║          SUPABASE INTEGRATION - QUICK START GUIDE             ║
+║                  CBT EXAM - SMKN 1 KUOK                       ║
+╚════════════════════════════════════════════════════════════════╝
+
+┌────────────────────────────────────────────────────────────────┐
+│ ⚡ SETUP DALAM 5 MENIT                                         │
+└────────────────────────────────────────────────────────────────┘
+
+LANGKAH 1: BUAT ACCOUNT SUPABASE (1 menit)
+═══════════════════════════════════════════
+→ Buka: https://supabase.com
+→ Klik: "Start your project"
+→ Sign up dengan GitHub atau Email
+→ Verifikasi email
+
+LANGKAH 2: BUAT PROJECT (1 menit)
+═══════════════════════════════════════════
+→ Klik: "New Project"
+→ Isi form:
+  Name: CBT-EXAM-SMKN1KUOK
+  Password: [buat password kuat, SIMPAN!]
+  Region: Southeast Asia (Singapore)
+  Plan: Free
+→ Klik: "Create new project"
+→ Tunggu ~2 menit
+
+LANGKAH 3: SETUP DATABASE (2 menit)
+═══════════════════════════════════════════
+→ Klik menu: SQL Editor (⚡)
+→ Klik: "New query"
+→ Copy isi file: supabase-setup.sql
+→ Paste di editor
+→ Klik: Run (atau Ctrl+Enter)
+→ Tunggu sampai muncul: "✅ COMPLETED SUCCESSFULLY!"
+
+→ Klik: "New query" lagi
+→ Copy isi file: supabase-insert-questions.sql
+→ Paste di editor
+→ Klik: Run
+→ Tunggu sampai: "✅ 40 Soal PAI berhasil diinsert!"
+
+LANGKAH 4: COPY CREDENTIALS (30 detik)
+═══════════════════════════════════════════
+→ Klik: ⚙️ Settings (sidebar kiri)
+→ Klik: API
+→ Copy 2 nilai ini:
+
+  📋 Project URL:
+  https://abcdefghijklmno.supabase.co
+
+  📋 anon public key:
+  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+
+LANGKAH 5: UPDATE APLIKASI (30 detik)
+═══════════════════════════════════════════
+→ Buka file: js/supabase-config.js
+→ Edit bagian ini:
+
+const SUPABASE_CONFIG = {
+    url: 'PASTE-URL-DISINI',
+    anonKey: 'PASTE-ANON-KEY-DISINI',
+    ...
+};
+
+→ Save file
+
+┌────────────────────────────────────────────────────────────────┐
+│ ✅ SELESAI! APLIKASI SIAP MENGGUNAKAN DATABASE CLOUD           │
+└────────────────────────────────────────────────────────────────┘
+
+┌────────────────────────────────────────────────────────────────┐
+│ 🧪 TESTING                                                     │
+└────────────────────────────────────────────────────────────────┘
+
+TEST 1: CEK TABEL
+→ Di Supabase dashboard, klik "Table Editor"
+→ Pastikan ada 7 tabel:
+  ✓ users
+  ✓ exams
+  ✓ questions (40 rows)
+  ✓ exam_sessions
+  ✓ answers
+  ✓ violations
+  ✓ admins
+
+TEST 2: CEK KONEKSI APLIKASI
+→ Buka aplikasi CBT Exam
+→ Buka Developer Console (F12)
+→ Harus muncul:
+  ✓ "Supabase initialized successfully"
+
+TEST 3: TRY LOGIN
+→ Login sebagai siswa dengan TOKEN2024
+→ Data seharusnya tersimpan di Supabase
+→ Check di Supabase: Table "exam_sessions"
+
+┌────────────────────────────────────────────────────────────────┐
+│ 📊 APA YANG DIDAPAT?                                           │
+└────────────────────────────────────────────────────────────────┘
+
+SEBELUM (LocalStorage):
+├─ ⚠️ Data per browser
+├─ ⚠️ Kapasitas 5-10 MB
+├─ ⚠️ Hilang jika clear browser
+└─ ⚠️ Tidak bisa monitoring real-time
+
+SESUDAH (Supabase):
+├─ ✅ Data di cloud (permanent)
+├─ ✅ Kapasitas 500 MB (free)
+├─ ✅ Multi-device sync
+├─ ✅ Real-time monitoring
+├─ ✅ Backup otomatis
+└─ ✅ Scalable ratusan siswa
+
+┌────────────────────────────────────────────────────────────────┐
+│ 📁 FILE SUPABASE                                               │
+└────────────────────────────────────────────────────────────────┘
+
+supabase-setup.sql
+→ SQL script untuk create tables, functions, views
+→ Run di Supabase SQL Editor
+
+supabase-insert-questions.sql
+→ SQL script untuk insert 40 soal PAI
+→ Run setelah supabase-setup.sql
+
+js/supabase-config.js
+→ API wrapper untuk Supabase operations
+→ Update dengan credentials Anda
+
+SUPABASE_SETUP_GUIDE.md
+→ Panduan lengkap setup (BACA INI!)
+→ Troubleshooting, best practices, dll
+
+DATABASE_SCHEMA.md
+→ Dokumentasi struktur database
+→ Tabel, relasi, functions, views
+
+SUPABASE_README.md
+→ Integration documentation
+→ API usage examples
+
+┌────────────────────────────────────────────────────────────────┐
+│ 🔧 KONFIGURASI                                                 │
+└────────────────────────────────────────────────────────────────┘
+
+FILE: js/supabase-config.js
+
+const SUPABASE_CONFIG = {
+    url: 'https://your-project.supabase.co',  // ← GANTI
+    anonKey: 'your-anon-key-here',            // ← GANTI
+    options: { ... }  // ← Biarkan default
+};
+
+┌────────────────────────────────────────────────────────────────┐
+│ 🚀 PENGGUNAAN API                                              │
+└────────────────────────────────────────────────────────────────┘
+
+// Get exam by token
+const exam = await SupabaseAPI.getExamByToken('TOKEN2024');
+
+// Start exam session
+const session = await SupabaseAPI.startExamSession(
+    examId, nisn, name, class
+);
+
+// Submit answer
+await SupabaseAPI.submitAnswer(sessionId, questionId, 'A');
+
+// Complete exam
+await SupabaseAPI.completeExamSession(sessionId);
+
+// Get final score
+const score = await SupabaseAPI.getFinalScore(sessionId);
+
+// Monitor active sessions (Admin)
+const sessions = await SupabaseAPI.getActiveSessions();
+
+┌────────────────────────────────────────────────────────────────┐
+│ 🎯 KAPAN MENGGUNAKAN?                                          │
+└────────────────────────────────────────────────────────────────┘
+
+GUNAKAN LocalStorage JIKA:
+→ Testing/development
+→ Ujian individual di satu device
+→ Tidak perlu monitoring real-time
+→ Tidak ada koneksi internet
+
+GUNAKAN Supabase JIKA:
+→ Production/ujian sebenarnya
+→ Lab komputer dengan banyak PC
+→ Perlu monitoring real-time
+→ Data harus aman & permanent
+→ Multi-device access
+→ Ratusan siswa
+
+┌────────────────────────────────────────────────────────────────┐
+│ 💰 BIAYA                                                       │
+└────────────────────────────────────────────────────────────────┘
+
+FREE TIER (Cukup untuk sekolah):
+✓ 500 MB Database
+✓ 1 GB File Storage
+✓ 2 GB Bandwidth/bulan
+✓ 50,000 Monthly Active Users
+✓ Unlimited API requests
+✓ Social OAuth providers
+✓ 7 days log retention
+
+UPGRADE KE PRO ($25/bulan) JIKA:
+→ Butuh lebih dari 500 MB database
+→ Perlu Point-in-Time Recovery
+→ Butuh daily backups
+→ Priority support
+
+┌────────────────────────────────────────────────────────────────┐
+│ 🐛 TROUBLESHOOTING                                             │
+└────────────────────────────────────────────────────────────────┘
+
+PROBLEM: "Supabase not initialized"
+→ SOLUSI: Cek URL & key sudah benar di supabase-config.js
+
+PROBLEM: "Failed to fetch"
+→ SOLUSI: Cek internet connection & project status
+
+PROBLEM: Soal tidak muncul
+→ SOLUSI: Run ulang supabase-insert-questions.sql
+
+PROBLEM: "Permission denied"
+→ SOLUSI: Cek RLS policies di Supabase dashboard
+
+PROBLEM: Session tidak tersimpan
+→ SOLUSI: Verify function start_exam_session works
+
+┌────────────────────────────────────────────────────────────────┐
+│ 📚 DOKUMENTASI LENGKAP                                         │
+└────────────────────────────────────────────────────────────────┘
+
+📖 SUPABASE_SETUP_GUIDE.md
+   → Panduan setup lengkap step-by-step
+   → Best practices & tips
+   → Production deployment
+
+📊 DATABASE_SCHEMA.md
+   → Struktur database detail
+   → Tabel, relasi, functions
+   → Query examples
+
+📄 SUPABASE_README.md
+   → API usage documentation
+   → Integration examples
+   → Security guidelines
+
+🗃️ supabase-setup.sql
+   → Database schema SQL
+   → Run di Supabase SQL Editor
+
+📝 supabase-insert-questions.sql
+   → Insert 40 soal PAI
+   → Run setelah setup.sql
+
+⚙️ js/supabase-config.js
+   → API wrapper & configuration
+   → Update dengan credentials
+
+┌────────────────────────────────────────────────────────────────┐
+│ ✨ NEXT STEPS                                                  │
+└────────────────────────────────────────────────────────────────┘
+
+1. [ ] Setup Supabase project (5 menit)
+2. [ ] Test di development
+3. [ ] Train guru/operator
+4. [ ] Pilot test dengan siswa
+5. [ ] Deploy to production
+6. [ ] Monitor usage di dashboard
+7. [ ] Setup regular backups
+8. [ ] Collect feedback & iterate
+
+┌────────────────────────────────────────────────────────────────┐
+│ 💡 TIPS                                                        │
+└────────────────────────────────────────────────────────────────┘
+
+✅ Simpan Supabase password di tempat aman
+✅ Jangan share credentials di public repo
+✅ Enable Row Level Security (sudah aktif)
+✅ Monitor database usage di dashboard
+✅ Setup email alerts untuk usage limits
+✅ Test thoroughly sebelum ujian
+✅ Have backup plan jika internet down
+✅ Train operator sebelum deployment
+
+┌────────────────────────────────────────────────────────────────┐
+│ 📞 BANTUAN                                                     │
+└────────────────────────────────────────────────────────────────┘
+
+Supabase Docs: https://supabase.com/docs
+Discord: https://discord.supabase.com
+YouTube: https://youtube.com/@Supabase
+
+Project Support:
+→ Baca SUPABASE_SETUP_GUIDE.md
+→ Check DATABASE_SCHEMA.md
+→ Hubungi admin sekolah
+
+═══════════════════════════════════════════════════════════════════
+
+                    SELAMAT MENGGUNAKAN SUPABASE! 🎉
+
+      Aplikasi CBT Exam sekarang production-ready dengan
+         database cloud yang powerful dan scalable!
+
+═══════════════════════════════════════════════════════════════════
+
+                    SMKN 1 KUOK - CBT EXAM v1.0
+              "Ujian Digital yang Mudah, Fokus, dan Profesional"
+
+═══════════════════════════════════════════════════════════════════

@@ -1,0 +1,219 @@
+╔════════════════════════════════════════════════════════════════╗
+║        DEPLOY KE GITHUB PAGES - SUPER CEPAT (5 MENIT)        ║
+║                 Username: heriyantoquin                       ║
+╚════════════════════════════════════════════════════════════════╝
+
+┌────────────────────────────────────────────────────────────────┐
+│ PERSIAPAN (Sekali Saja)                                       │
+└────────────────────────────────────────────────────────────────┘
+
+1. INSTALL GIT (jika belum)
+   → Download: https://git-scm.com/download/win
+   → Install dengan default settings
+   → Restart PowerShell
+
+2. CEK GIT TERINSTALL
+   → Buka PowerShell
+   → Ketik: git --version
+   → Harus muncul versi Git
+
+┌────────────────────────────────────────────────────────────────┐
+│ CARA 1: OTOMATIS DENGAN SCRIPT (TERMUDAH!)                    │
+└────────────────────────────────────────────────────────────────┘
+
+1. Buka PowerShell di folder CBTEXAM
+   
+2. Jalankan script:
+   .\deploy.ps1
+
+3. Ikuti petunjuk di layar
+
+4. Done! ✅
+
+┌────────────────────────────────────────────────────────────────┐
+│ CARA 2: MANUAL (COPY-PASTE COMMAND)                           │
+└────────────────────────────────────────────────────────────────┘
+
+LANGKAH 1: BUAT REPOSITORY DI GITHUB
+────────────────────────────────────────
+1. Buka: https://github.com/new
+2. Repository name: cbt-exam-smkn1kuok
+3. Public
+4. Jangan centang apa-apa
+5. Create repository
+6. Simpan URL yang muncul
+
+LANGKAH 2: UPLOAD PROJECT
+────────────────────────────────────────
+Buka PowerShell di folder CBTEXAM (d:\CBTEXAM), lalu:
+
+# Setup Git (sekali saja)
+git config --global user.name "Heriyanto"
+git config --global user.email "heriyantoquin@gmail.com"
+
+# Upload
+git init
+git add .
+git commit -m "Initial commit: CBT Exam v1.0"
+git branch -M main
+git remote add origin https://github.com/heriyantoquin/cbt-exam-smkn1kuok.git
+git push -u origin main
+
+LANGKAH 3: ENABLE GITHUB PAGES
+────────────────────────────────────────
+1. Buka: https://github.com/heriyantoquin/cbt-exam-smkn1kuok
+2. Settings → Pages
+3. Source: main
+4. Save
+5. Tunggu 1-2 menit
+
+┌────────────────────────────────────────────────────────────────┐
+│ URL APLIKASI ANDA                                              │
+└────────────────────────────────────────────────────────────────┘
+
+Landing Page:
+https://heriyantoquin.github.io/cbt-exam-smkn1kuok/launcher.html
+
+Portal Siswa:
+https://heriyantoquin.github.io/cbt-exam-smkn1kuok/index.html
+
+Portal Admin:
+https://heriyantoquin.github.io/cbt-exam-smkn1kuok/admin.html
+
+┌────────────────────────────────────────────────────────────────┐
+│ PERSONAL ACCESS TOKEN (Jika Diminta Password)                 │
+└────────────────────────────────────────────────────────────────┘
+
+Jika git push minta password dan password GitHub tidak work:
+
+1. Buka: https://github.com/settings/tokens
+
+2. Generate new token → Classic
+
+3. Centang: ☑️ repo
+
+4. Generate token
+
+5. COPY token (ghp_xxxxxxxxxxxxx)
+
+6. Gunakan token ini sebagai password
+
+7. SIMPAN token di tempat aman!
+
+┌────────────────────────────────────────────────────────────────┐
+│ UPDATE APLIKASI (Setelah Edit)                                │
+└────────────────────────────────────────────────────────────────┘
+
+Cara cepat:
+.\deploy.ps1
+
+Atau manual:
+git add .
+git commit -m "Update aplikasi"
+git push
+
+Tunggu 1-2 menit → Aplikasi update otomatis!
+
+┌────────────────────────────────────────────────────────────────┐
+│ TROUBLESHOOTING                                                │
+└────────────────────────────────────────────────────────────────┘
+
+❌ "git: command not found"
+✅ Install Git dari https://git-scm.com/download/win
+
+❌ "Permission denied"
+✅ Gunakan Personal Access Token
+
+❌ "404 Page not found"
+✅ Enable GitHub Pages di Settings
+✅ Tunggu 2 menit
+✅ Akses dengan /launcher.html
+
+❌ Script tidak bisa dijalankan
+✅ PowerShell: Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+✅ Lalu jalankan: .\deploy.ps1
+
+┌────────────────────────────────────────────────────────────────┐
+│ CHECKLIST                                                      │
+└────────────────────────────────────────────────────────────────┘
+
+Persiapan:
+[ ] Git terinstall
+[ ] GitHub account ready
+[ ] Email GitHub dicatat
+
+Deploy:
+[ ] Repository dibuat
+[ ] Git push berhasil
+[ ] GitHub Pages enabled
+[ ] URL bisa diakses
+
+Testing:
+[ ] Landing page buka
+[ ] Login siswa work
+[ ] Admin panel work
+[ ] Test di mobile
+
+Share:
+[ ] Share URL ke siswa
+[ ] Share token ujian
+[ ] Brief cara pakai
+
+┌────────────────────────────────────────────────────────────────┐
+│ SHARE KE SISWA                                                 │
+└────────────────────────────────────────────────────────────────┘
+
+Template WhatsApp/Announcement:
+
+═══════════════════════════════════════════
+📢 PENGUMUMAN UJIAN CBT
+
+🎓 Ujian: PAI dan Budi Pekerti
+👨‍🏫 Guru: Heriyanto
+📅 Tanggal: [ISI TANGGAL]
+⏰ Waktu: [ISI WAKTU]
+⏱️ Durasi: 60 menit
+📝 Jumlah Soal: 40
+
+🌐 Link Ujian:
+https://heriyantoquin.github.io/cbt-exam-smkn1kuok/launcher.html
+
+🔑 Token Ujian: TOKEN2024
+
+📋 Yang Perlu Disiapkan:
+- NIS/NISN
+- Nama lengkap
+- Kelas
+- Device (laptop/tablet/HP)
+- Koneksi internet
+
+⚠️ PENTING:
+- Jangan keluar dari aplikasi saat ujian
+- Jangan pindah tab/aplikasi lain
+- Jawaban tersimpan otomatis
+- Waktu berjalan otomatis setelah mulai
+
+📞 Bantuan: [NOMOR CONTACT]
+═══════════════════════════════════════════
+
+┌────────────────────────────────────────────────────────────────┐
+│ DOKUMENTASI LENGKAP                                            │
+└────────────────────────────────────────────────────────────────┘
+
+📖 DEPLOY_GITHUB.md      → Panduan deploy lengkap
+📄 README.md             → Dokumentasi aplikasi
+📙 QUICK_START.txt       → Panduan penggunaan
+
+═══════════════════════════════════════════════════════════════════
+
+                    ✅ SIAP DEPLOY KE GITHUB!
+
+             Aplikasi akan LIVE dan GRATIS selamanya
+                dengan GitHub Pages (SSL included!)
+
+═══════════════════════════════════════════════════════════════════
+
+                      SMKN 1 KUOK - CBT EXAM
+            "Ujian Digital yang Mudah, Fokus, dan Profesional"
+
+═══════════════════════════════════════════════════════════════════

@@ -1,0 +1,299 @@
+╔════════════════════════════════════════════════════════════════╗
+║           CBT EXAM - SMKN 1 KUOK - PROJECT STRUCTURE          ║
+╚════════════════════════════════════════════════════════════════╝
+
+CBTEXAM/
+│
+├── 🚀 ENTRY POINTS (Buka file-file ini)
+│   ├── launcher.html              ★ MULAI DI SINI - Halaman pemilihan
+│   ├── index.html                 📱 Portal Siswa
+│   └── admin.html                 👨‍🏫 Portal Admin
+│
+├── 📁 css/ (Styling & Design)
+│   ├── styles.css                 🎨 Style utama (siswa)
+│   └── admin.css                  🎨 Style admin panel
+│
+├── 📁 js/ (Application Logic)
+│   ├── data.js                    💾 Data management & sample data
+│   │                                  ├─ 40 soal PAI
+│   │                                  ├─ Token ujian
+│   │                                  ├─ Admin credentials
+│   │                                  └─ LocalStorage functions
+│   │
+│   ├── app.js                     ⚙️ Student interface logic
+│   │                                  ├─ Login handler
+│   │                                  ├─ Exam engine
+│   │                                  ├─ Timer system
+│   │                                  ├─ Navigation
+│   │                                  ├─ Autosave
+│   │                                  └─ Security features
+│   │
+│   └── admin.js                   ⚙️ Admin panel logic
+│                                      ├─ Admin login
+│                                      ├─ Dashboard
+│                                      ├─ Bank soal management
+│                                      ├─ Monitoring
+│                                      └─ Dark mode
+│
+├── 📖 DOKUMENTASI (Baca untuk panduan)
+│   ├── README.md                  📘 Dokumentasi teknis lengkap
+│   ├── PANDUAN_PENGGUNAAN.md      📗 Panduan detail (Siswa & Guru)
+│   ├── QUICK_START.txt            📙 Panduan cepat & referensi
+│   ├── INSTALLATION.md            📕 Panduan instalasi & setup
+│   ├── CHANGELOG.md               📋 Riwayat perubahan & roadmap
+│   ├── LICENSE.txt                ⚖️ Lisensi & disclaimer
+│   └── PROJECT_STRUCTURE.txt      📂 File ini
+│
+└── 📊 INFORMATION
+    ├── Version: 1.0.0
+    ├── Release Date: October 5, 2024
+    ├── School: SMKN 1 KUOK
+    └── Purpose: Computer Based Test (CBT)
+
+═══════════════════════════════════════════════════════════════════
+
+🎯 QUICK ACCESS GUIDE
+
+┌───────────────────────────────────────────────────────────────┐
+│ UNTUK SISWA                                                    │
+└───────────────────────────────────────────────────────────────┘
+
+1️⃣ Buka: launcher.html atau index.html
+2️⃣ Data login demo:
+   • NIS/NISN: [apa saja]
+   • Nama: [nama Anda]
+   • Kelas: [pilih dari dropdown]
+   • Token: TOKEN2024
+
+┌───────────────────────────────────────────────────────────────┐
+│ UNTUK GURU/ADMIN                                               │
+└───────────────────────────────────────────────────────────────┘
+
+1️⃣ Buka: launcher.html atau admin.html
+2️⃣ Login dengan:
+   • Username: admin
+   • Password: admin123
+
+┌───────────────────────────────────────────────────────────────┐
+│ UNTUK DEVELOPER                                                │
+└───────────────────────────────────────────────────────────────┘
+
+File yang perlu diedit untuk kustomisasi:
+
+📝 KONTEN
+   js/data.js           → Ubah token, soal, durasi
+
+🎨 DESIGN
+   css/styles.css       → Ubah warna, font, layout siswa
+   css/admin.css        → Ubah style admin panel
+
+⚙️ LOGIC
+   js/app.js            → Modifikasi fitur siswa
+   js/admin.js          → Modifikasi fitur admin
+
+📄 HTML
+   index.html           → Struktur halaman siswa
+   admin.html           → Struktur halaman admin
+   launcher.html        → Halaman landing
+
+═══════════════════════════════════════════════════════════════════
+
+📦 FEATURES CHECKLIST
+
+STUDENT INTERFACE
+├── ✅ Login dengan validasi
+├── ✅ Pre-exam dashboard
+├── ✅ Countdown timer (60 menit)
+├── ✅ 40 soal pilihan ganda
+├── ✅ Navigasi prev/next
+├── ✅ Grid daftar soal
+├── ✅ Mark soal untuk review
+├── ✅ Autosave otomatis
+├── ✅ Submit confirmation
+├── ✅ Results page
+├── ✅ Kiosk/Focus mode
+├── ✅ Security features
+├── ✅ Responsive mobile/tablet/desktop
+└── ✅ Dark mode support
+
+ADMIN PANEL
+├── ✅ Admin login
+├── ✅ Dashboard statistik
+├── ✅ Bank soal management
+├── ✅ Add/edit/delete soal
+├── ✅ Search & filter
+├── ✅ Live monitoring
+├── ✅ Violation tracking
+├── ✅ Responsive design
+└── ✅ Dark mode toggle
+
+SECURITY
+├── ✅ Token-based access
+├── ✅ Session management
+├── ✅ Fullscreen enforcement
+├── ✅ Tab switch detection
+├── ✅ Focus loss detection
+├── ✅ Context menu blocking
+├── ✅ Keyboard shortcut blocking
+├── ✅ Violation counting (max 3)
+└── ✅ Auto-submit on timeout
+
+DATA & STORAGE
+├── ✅ LocalStorage persistence
+├── ✅ Autosave answers
+├── ✅ Session recovery
+├── ✅ Mark questions tracking
+└── ✅ Violation logging
+
+═══════════════════════════════════════════════════════════════════
+
+🔧 CONFIGURATION LOCATIONS
+
+TOKEN UJIAN
+→ File: js/data.js
+→ Object: examTokens
+→ Default: 'TOKEN2024'
+
+DURASI UJIAN
+→ File: js/data.js
+→ Property: duration (dalam menit)
+→ Default: 60 menit
+
+JUMLAH SOAL
+→ File: js/data.js
+→ Array: questions
+→ Default: 40 soal PAI
+
+ADMIN ACCOUNT
+→ File: js/data.js
+→ Object: admin
+→ Default: admin / admin123
+
+WARNA TEMA
+→ File: css/styles.css
+→ Section: :root (CSS Variables)
+→ Primary: #2563eb (biru)
+
+═══════════════════════════════════════════════════════════════════
+
+📊 FILE SIZES (Approximate)
+
+launcher.html        ~8 KB
+index.html          ~15 KB
+admin.html          ~18 KB
+css/styles.css      ~18 KB
+css/admin.css       ~10 KB
+js/data.js          ~20 KB (with 40 questions)
+js/app.js           ~25 KB
+js/admin.js         ~15 KB
+
+TOTAL               ~130 KB (excluding documentation)
+
+═══════════════════════════════════════════════════════════════════
+
+🌐 BROWSER SUPPORT
+
+Fully Supported:
+✅ Chrome 90+
+✅ Firefox 88+
+✅ Edge 90+
+✅ Safari 14+
+
+Partially Supported:
+⚠️ Safari iOS (no fullscreen)
+⚠️ Opera (not tested)
+
+Not Supported:
+❌ Internet Explorer
+
+═══════════════════════════════════════════════════════════════════
+
+📱 DEVICE SUPPORT
+
+Desktop/Laptop      ⭐⭐⭐⭐⭐ (Optimal)
+├─ Full features
+├─ Sidebar always visible
+└─ Best user experience
+
+Tablet              ⭐⭐⭐⭐☆ (Great)
+├─ Responsive layout
+├─ Touch optimized
+└─ Sidebar can be toggled
+
+Smartphone          ⭐⭐⭐⭐☆ (Good)
+├─ Mobile-optimized
+├─ Sidebar overlay
+└─ Touch-friendly buttons
+
+═══════════════════════════════════════════════════════════════════
+
+🚀 DEPLOYMENT OPTIONS
+
+1. LOCAL (File System)
+   → Double-click launcher.html
+   → Pros: Simple, no setup
+   → Cons: Limited features, no multi-device
+
+2. LOCAL SERVER
+   → Python: python -m http.server 8000
+   → PHP: php -S localhost:8000
+   → Node: http-server -p 8000
+   → Pros: Better testing, proper URLs
+   → Cons: Still local only
+
+3. HOSTING (Production)
+   → Shared hosting / VPS
+   → GitHub Pages / Netlify
+   → Pros: Accessible from anywhere
+   → Cons: Need domain & SSL
+
+═══════════════════════════════════════════════════════════════════
+
+💡 TIPS & BEST PRACTICES
+
+BEFORE EXAM:
+✅ Test system thoroughly
+✅ Prepare backup devices
+✅ Train operators
+✅ Brief students
+✅ Check internet connection
+✅ Charge all devices
+
+DURING EXAM:
+✅ Have tech support ready
+✅ Monitor students actively
+✅ Watch for violations
+✅ Be ready to troubleshoot
+✅ Have emergency plan
+
+AFTER EXAM:
+✅ Backup all data
+✅ Review violations
+✅ Export results
+✅ Analyze statistics
+✅ Get feedback
+
+═══════════════════════════════════════════════════════════════════
+
+📞 SUPPORT & RESOURCES
+
+Documentation:
+📘 README.md              - Technical overview
+📗 PANDUAN_PENGGUNAAN.md  - User guide (Indonesian)
+📙 QUICK_START.txt        - Quick reference
+📕 INSTALLATION.md        - Setup guide
+
+Contact:
+🏫 School: SMKN 1 KUOK
+👨‍🏫 Teacher: Heriyanto
+📚 Subject: PAI dan Budi Pekerti
+
+Version:
+📌 v1.0.0 - October 5, 2024
+
+═══════════════════════════════════════════════════════════════════
+
+              Terima kasih menggunakan CBT EXAM! 🎓
+                  Semoga ujian berjalan lancar!
+
+═══════════════════════════════════════════════════════════════════

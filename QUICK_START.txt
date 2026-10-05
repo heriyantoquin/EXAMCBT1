@@ -1,0 +1,164 @@
+╔════════════════════════════════════════════════════════════════╗
+║          CBT EXAM - SMKN 1 KUOK - QUICK START GUIDE          ║
+║        Ujian Digital yang Mudah, Fokus, dan Profesional       ║
+╚════════════════════════════════════════════════════════════════╝
+
+┌────────────────────────────────────────────────────────────────┐
+│ 🎓 UNTUK SISWA - MULAI UJIAN                                   │
+└────────────────────────────────────────────────────────────────┘
+
+1. Buka file: index.html
+
+2. Login dengan data:
+   • NIS/NISN     : [Nomor induk Anda]
+   • Nama         : [Nama lengkap]
+   • Kelas        : [Pilih dari dropdown]
+   • Token Ujian  : TOKEN2024
+
+3. Klik "MASUK UJIAN"
+
+4. Periksa informasi ujian → Klik "MULAI UJIAN"
+
+5. Kerjakan soal:
+   • Klik jawaban untuk memilih
+   • Gunakan tombol ← → untuk navigasi
+   • Klik 🔖 untuk menandai soal
+
+6. Klik "SELESAI & KUMPULKAN" jika sudah selesai
+
+┌────────────────────────────────────────────────────────────────┐
+│ 👨‍🏫 UNTUK GURU/ADMIN                                            │
+└────────────────────────────────────────────────────────────────┘
+
+1. Buka file: admin.html
+
+2. Login dengan:
+   • Username: admin
+   • Password: admin123
+
+3. Menu yang tersedia:
+   • Dashboard    : Lihat statistik
+   • Bank Soal    : Kelola pertanyaan
+   • Monitoring   : Pantau siswa real-time
+   • Hasil        : Lihat hasil ujian
+
+┌────────────────────────────────────────────────────────────────┐
+│ 📋 DATA DEMO                                                   │
+└────────────────────────────────────────────────────────────────┘
+
+TOKEN UJIAN AKTIF:
+├─ Token          : TOKEN2024
+├─ Mata Pelajaran : PAI dan Budi Pekerti
+├─ Guru           : Heriyanto
+├─ Durasi         : 60 menit
+├─ Jumlah Soal    : 40 soal
+└─ Kelas Valid    : Semua kelas (X-XII)
+
+AKUN ADMIN:
+├─ Username : admin
+└─ Password : admin123
+
+┌────────────────────────────────────────────────────────────────┐
+│ ⚙️ KONFIGURASI CEPAT                                           │
+└────────────────────────────────────────────────────────────────┘
+
+MENGUBAH TOKEN:
+→ Edit file: js/data.js
+→ Cari: examTokens
+→ Ganti 'TOKEN2024' dengan token baru
+
+MENGUBAH DURASI:
+→ Edit file: js/data.js
+→ Cari: duration: 60
+→ Ganti angka (dalam menit)
+
+MENAMBAH SOAL:
+→ Gunakan panel admin (Bank Soal)
+→ Atau edit array questions di js/data.js
+
+┌────────────────────────────────────────────────────────────────┐
+│ 🔒 FITUR KEAMANAN                                              │
+└────────────────────────────────────────────────────────────────┘
+
+✓ Fullscreen otomatis saat ujian
+✓ Deteksi perpindahan tab
+✓ Deteksi kehilangan fokus
+✓ Block klik kanan & shortcut
+✓ Autosave jawaban
+✓ Timer server-side
+✓ Pencatatan pelanggaran (max 3x)
+
+┌────────────────────────────────────────────────────────────────┐
+│ 📱 KOMPATIBILITAS                                              │
+└────────────────────────────────────────────────────────────────┘
+
+✓ Desktop/Laptop   : Full features
+✓ Tablet           : Optimized layout
+✓ Smartphone       : Mobile-friendly
+✓ Browser          : Chrome, Firefox, Edge (terbaru)
+
+┌────────────────────────────────────────────────────────────────┐
+│ ⚠️ PENTING                                                     │
+└────────────────────────────────────────────────────────────────┘
+
+• Jangan clear browser data selama ujian berlangsung
+• Pastikan baterai cukup sebelum mulai
+• Tutup aplikasi lain untuk performa optimal
+• Test sistem sebelum ujian sebenarnya
+• Jawaban tersimpan di LocalStorage browser
+
+┌────────────────────────────────────────────────────────────────┐
+│ 📚 DOKUMENTASI LENGKAP                                         │
+└────────────────────────────────────────────────────────────────┘
+
+→ README.md              : Dokumentasi teknis lengkap
+→ PANDUAN_PENGGUNAAN.md  : Panduan detail untuk siswa & guru
+→ QUICK_START.txt        : Panduan ini
+
+┌────────────────────────────────────────────────────────────────┐
+│ 🚀 TIPS PENGGUNAAN                                             │
+└────────────────────────────────────────────────────────────────┘
+
+UNTUK SISWA:
+• Baca soal dengan teliti
+• Tandai soal yang ragu untuk dicek ulang
+• Perhatikan timer di atas
+• Jangan keluar dari aplikasi saat ujian
+• Kumpulkan ujian sebelum waktu habis
+
+UNTUK GURU:
+• Bagikan token sebelum ujian dimulai
+• Monitor siswa secara real-time
+• Cek pelanggaran di dashboard monitoring
+• Export hasil untuk analisis lebih lanjut
+
+┌────────────────────────────────────────────────────────────────┐
+│ ❓ TROUBLESHOOTING CEPAT                                       │
+└────────────────────────────────────────────────────────────────┘
+
+MASALAH          → SOLUSI
+─────────────────────────────────────────────────────────────
+Token tidak valid → Cek kembali token dari guru
+Jawaban hilang   → Jawaban auto-save, coba refresh
+Timer error      → Refresh halaman, ujian tetap lanjut
+Sidebar hilang   → Klik tombol 📋 (pojok kanan bawah)
+Fullscreen keluar→ Tekan F11 atau klik "Kembali"
+
+┌────────────────────────────────────────────────────────────────┐
+│ 📞 DUKUNGAN                                                    │
+└────────────────────────────────────────────────────────────────┘
+
+Untuk bantuan lebih lanjut, hubungi:
+→ Admin sekolah
+→ IT Support sekolah
+→ Guru pengampu
+
+═══════════════════════════════════════════════════════════════════
+
+                    SELAMAT MENGGUNAKAN CBT EXAM!
+                      
+              Dikembangkan dengan ❤️ untuk SMKN 1 KUOK
+                    
+       "Ujian Digital yang Mudah, Fokus, dan Profesional"
+
+═══════════════════════════════════════════════════════════════════

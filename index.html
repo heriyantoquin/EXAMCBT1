@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBT EXAM — SMKN 1 KUOK</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Login Page -->
+    <div id="loginPage" class="page active">
+        <div class="login-container">
+            <div class="login-card">
+                <div class="school-logo">
+                    <div class="logo-circle">
+                        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                            <path d="M30 5L10 15V27C10 39.5 17.5 51.5 30 55C42.5 51.5 50 39.5 50 27V15L30 5Z" fill="#2563eb" stroke="#2563eb" stroke-width="2"/>
+                            <path d="M30 20V35M23 27.5L30 35L37 27.5" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h1 class="school-name">SMKN 1 KUOK</h1>
+                </div>
+                
+                <div class="app-title">
+                    <h2>CBT EXAM</h2>
+                    <p class="tagline">Ujian Digital yang Mudah, Fokus, dan Profesional</p>
+                </div>
+
+                <form id="loginForm" class="login-form">
+                    <div class="form-group">
+                        <label for="nisn">NIS/NISN</label>
+                        <input type="text" id="nisn" placeholder="Masukkan NIS/NISN" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="studentName">Nama Lengkap</label>
+                        <input type="text" id="studentName" placeholder="Masukkan nama lengkap" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="studentClass">Kelas</label>
+                        <select id="studentClass" required>
+                            <option value="">Pilih kelas</option>
+                            <option value="X APAT">X APAT</option>
+                            <option value="X TO">X TO</option>
+                            <option value="XI APAT">XI APAT</option>
+                            <option value="XI TO">XI TO</option>
+                            <option value="XII APAT">XII APAT</option>
+                            <option value="XII TO">XII TO</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="examToken">Token Ujian</label>
+                        <input type="text" id="examToken" placeholder="Masukkan token ujian" required>
+                    </div>
+
+                    <div class="error-message" id="loginError"></div>
+
+                    <button type="submit" class="btn btn-primary btn-large">
+                        MASUK UJIAN
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pre-Exam Dashboard -->
+    <div id="preExamPage" class="page">
+        <div class="dashboard-container">
+            <div class="welcome-card">
+                <h2 class="welcome-title">SELAMAT DATANG</h2>
+                
+                <div class="student-info">
+                    <div class="info-row">
+                        <span class="info-label">Nama</span>
+                        <span class="info-value" id="displayName">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Kelas</span>
+                        <span class="info-value" id="displayClass">-</span>
+                    </div>
+                </div>
+
+                <div class="exam-info">
+                    <h3>Informasi Ujian</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="info-icon">📚</div>
+                            <div class="info-content">
+                                <div class="info-title">Mata Pelajaran</div>
+                                <div class="info-text" id="displaySubject">PAI dan Budi Pekerti</div>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">👨‍🏫</div>
+                            <div class="info-content">
+                                <div class="info-title">Guru</div>
+                                <div class="info-text" id="displayTeacher">Heriyanto</div>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">📅</div>
+                            <div class="info-content">
+                                <div class="info-title">Tanggal Ujian</div>
+                                <div class="info-text" id="displayDate">-</div>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">⏱️</div>
+                            <div class="info-content">
+                                <div class="info-title">Durasi</div>
+                                <div class="info-text" id="displayDuration">60 menit</div>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">📝</div>
+                            <div class="info-content">
+                                <div class="info-title">Jumlah Soal</div>
+                                <div class="info-text" id="displayTotalQuestions">40 Soal</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary btn-large" id="startExamBtn">
+                    MULAI UJIAN
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exam Page -->
+    <div id="examPage" class="page">
+        <div class="exam-header">
+            <div class="header-left">
+                <div class="app-name">CBT EXAM</div>
+                <div class="subject-name" id="examSubject">-</div>
+            </div>
+            <div class="header-center">
+                <div class="timer-container">
+                    <span class="timer-icon">⏱️</span>
+                    <span class="timer" id="examTimer">60:00</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="student-name" id="examStudentName">-</div>
+            </div>
+        </div>
+
+        <div class="exam-content">
+            <div class="question-section">
+                <div class="question-header">
+                    <h3 class="question-number" id="questionNumber">SOAL 01 / 40</h3>
+                    <button class="btn-mark" id="markQuestionBtn">
+                        <span class="mark-icon">🔖</span>
+                        <span class="mark-text">Tandai Soal</span>
+                    </button>
+                </div>
+
+                <div class="question-content">
+                    <div class="question-text" id="questionText">
+                        Memuat soal...
+                    </div>
+
+                    <div class="answer-options" id="answerOptions">
+                        <!-- Options will be loaded here -->
+                    </div>
+                </div>
+
+                <div class="autosave-indicator" id="autosaveIndicator">
+                    <span class="save-icon">✓</span>
+                    <span class="save-text">Jawaban tersimpan</span>
+                </div>
+
+                <div class="navigation-buttons">
+                    <button class="btn btn-secondary" id="prevBtn">
+                        <span>←</span> SEBELUMNYA
+                    </button>
+                    <button class="btn btn-secondary" id="nextBtn">
+                        BERIKUTNYA <span>→</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <h4>DAFTAR SOAL</h4>
+                    <button class="toggle-sidebar" id="toggleSidebar">
+                        <span>×</span>
+                    </button>
+                </div>
+                
+                <div class="question-grid" id="questionGrid">
+                    <!-- Question numbers will be loaded here -->
+                </div>
+
+                <div class="legend">
+                    <div class="legend-item">
+                        <span class="legend-dot answered"></span>
+                        <span>Sudah dijawab</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot"></span>
+                        <span>Belum dijawab</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot marked"></span>
+                        <span>Ditandai</span>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary btn-submit" id="submitExamBtn">
+                    SELESAI & KUMPULKAN
+                </button>
+            </div>
+        </div>
+
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            📋 <span id="answeredCount">0/40</span>
+        </button>
+    </div>
+
+    <!-- Results Page -->
+    <div id="resultsPage" class="page">
+        <div class="results-container">
+            <div class="results-card">
+                <div class="success-icon">✓</div>
+                <h2 class="results-title">UJIAN BERHASIL DIKUMPULKAN</h2>
+                
+                <div class="results-info">
+                    <div class="results-row">
+                        <span class="results-label">Nama</span>
+                        <span class="results-value" id="resultsName">-</span>
+                    </div>
+                    <div class="results-row">
+                        <span class="results-label">Mata Pelajaran</span>
+                        <span class="results-value" id="resultsSubject">-</span>
+                    </div>
+                    <div class="results-row">
+                        <span class="results-label">Jumlah Soal</span>
+                        <span class="results-value" id="resultsTotalQuestions">-</span>
+                    </div>
+                    <div class="results-row">
+                        <span class="results-label">Dijawab</span>
+                        <span class="results-value" id="resultsAnswered">-</span>
+                    </div>
+                    <div class="results-row">
+                        <span class="results-label">Status</span>
+                        <span class="results-value status-badge">TERKUMPUL</span>
+                    </div>
+                </div>
+
+                <div class="results-message">
+                    Terima kasih telah mengikuti ujian. Silakan tunggu pengumuman hasil dari guru.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Confirm Start Exam -->
+    <div class="modal" id="confirmStartModal">
+        <div class="modal-content">
+            <h3>Konfirmasi Mulai Ujian</h3>
+            <p>Pastikan data Anda benar. Setelah ujian dimulai, waktu akan berjalan otomatis.</p>
+            <div class="modal-buttons">
+                <button class="btn btn-secondary" id="cancelStartBtn">BATAL</button>
+                <button class="btn btn-primary" id="confirmStartBtn">MULAI UJIAN</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Confirm Submit -->
+    <div class="modal" id="confirmSubmitModal">
+        <div class="modal-content">
+            <h3>Konfirmasi Pengumpulan</h3>
+            <p>Apakah Anda yakin ingin mengumpulkan ujian?</p>
+            <div class="submit-summary">
+                <div class="summary-item">
+                    <span>Sudah dijawab:</span>
+                    <strong id="summaryAnswered">0</strong>
+                </div>
+                <div class="summary-item">
+                    <span>Belum dijawab:</span>
+                    <strong id="summaryUnanswered">0</strong>
+                </div>
+                <div class="summary-item">
+                    <span>Ditandai:</span>
+                    <strong id="summaryMarked">0</strong>
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button class="btn btn-secondary" id="cancelSubmitBtn">KEMBALI KE UJIAN</button>
+                <button class="btn btn-primary" id="confirmSubmitBtn">KUMPULKAN</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Focus Warning -->
+    <div class="modal" id="focusWarningModal">
+        <div class="modal-content warning">
+            <h3>⚠️ PERINGATAN</h3>
+            <p>Anda meninggalkan mode ujian. Silakan kembali ke halaman ujian.</p>
+            <p class="warning-count">Peringatan: <strong id="warningCount">1/3</strong></p>
+            <button class="btn btn-primary" id="returnToExamBtn">KEMBALI KE UJIAN</button>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+        <p>Memuat...</p>
+    </div>
+
+    <!-- Supabase Client Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <!-- Application Scripts -->
+    <script src="js/supabase-config.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
